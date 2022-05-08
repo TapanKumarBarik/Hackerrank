@@ -1,6 +1,45 @@
 //https://www.hackerrank.com/challenges/crush/problem
 
 
+
+  /*
+     * Complete the 'arrayManipulation' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER n
+     *  2. 2D_INTEGER_ARRAY queries
+     */
+
+    public static long arrayManipulation(int n, List<List<Integer>> queries) {
+    // Write your code here
+    
+        long[] computation = new long[n];
+
+    for (int i = 0; i < queries.size(); i++) {
+      int a = queries.get(i).get(0) - 1;
+      int b = queries.get(i).get(1) - 1;
+      int k = queries.get(i).get(2);
+
+      computation[a] += k;
+      if (b + 1 < n ) {
+        computation[b + 1] -= k;
+      }
+    }
+
+    long max = 0; long sum = 0;
+    for (int i = 0; i < n; i++) {
+      sum += computation[i];
+      max = Math.max(max, sum);
+    }
+
+    return max;
+    }
+
+
+
+//////////////////////////////////////////////////////////////////
+
 /*
      * Complete the 'arrayManipulation' function below.
      *
