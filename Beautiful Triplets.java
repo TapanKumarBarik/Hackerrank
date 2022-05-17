@@ -17,15 +17,18 @@
     // Write your code here
   int count=0;
     int n=arr.size();
-    for(int i=0;i<n-2;i++){
-        for(int j=i+1;j<n-2;j++){
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
             
-            for(int k=j+1;k<n;k++){
+            if(arr.get(j)-arr.get(i)  == d){
+                  for(int k=j+1;k<n;k++){
                 
-                if(arr.get(k)-arr.get(j)  == d  && arr.get(j)-arr.get(i)  == d   ){
+                if(arr.get(k)-arr.get(j)  == d    ){
                     count++;
                 }
             }
+            }
+          
             
         }
     }
